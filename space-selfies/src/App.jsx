@@ -220,24 +220,29 @@ function loadImage(src) {
     ctx.fillText(msg, size / 2, size / 2);
   }
 
-  // Download the canvas as an image
-  function handleDownload() {
-    if (!canvasRef.current) return;
-
-    try {
-      const dataUrl = canvasRef.current.toDataURL('image/png');
-      const link = document.createElement('a');
-      link.download = 'space-selfie.png';
-      link.href = dataUrl;
-      link.click();
-    } catch (err) {
-      console.error('Download failed due to CORS / tainted canvas:', err);
-      alert(
-        'Your browser blocked the download because the NASA image does not allow it (CORS). ' +
-          'You can still take a screenshot of the preview as a workaround.'
-      );
-    }
+function handleDownload() {
+  if (import.meta.env.PROD) {
+    alert(
+      'Downloads are available in the local version of this app. This online demo runs without the backend proxy, so please use a screenshot to save your Space Selfie.'
+    );
+    return;
   }
+
+  if (!canvasRef.current) return;
+
+  try {
+    const dataUrl = canvasRef.current.toDataURL('image/png');
+    const link = document.createElement('a');
+    link.download = 'space-selfie.png';
+    link.href = dataUrl;
+    link.click();
+  } catch (err) {
+    console.error('Download failed due to CORS / tainted canvas:', err);
+    alert(
+      'Your browser blocked the download because the image does not allow it (CORS). You can still take a screenshot of the preview as a workaround.'
+    );
+  }
+}
 
   const canDownload = apods[selectedIndex] && selfieSrc;
 
