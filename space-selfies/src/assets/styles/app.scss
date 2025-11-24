@@ -1,0 +1,312 @@
+/* ========= Layout ========= */
+
+.app-page {
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+
+  background-color: #000; // pure black background
+  color: #e5e7eb;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+  display: flex;
+  justify-content: center;
+  padding: 1rem; // mobile padding
+  box-sizing: border-box;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 600px; // mobile-friendly width
+}
+
+/* ========= Header ========= */
+
+.app-header {
+  margin-bottom: 1.25rem;
+
+  .app-title {
+    font-size: 1.6rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .app-subtitle {
+    font-size: 0.9rem;
+    color: #cbd5f5;
+  }
+}
+
+/* ========= Main Layout (mobile-first) ========= */
+
+.app-layout {
+  display: flex;
+  flex-direction: column; // stack panels on mobile
+  gap: 1rem;
+}
+
+.app-left-panel,
+.app-right-panel {
+  width: 100%;
+}
+
+/* Mobile-first ordering */
+.app-right-panel {
+  order: -1;   // preview goes on top on mobile
+}
+
+.app-left-panel {
+  order: 1;    // controls go below
+}
+
+
+/* ========= Cards ========= */
+
+.app-card {
+  background-color: #0f172a;
+  border-radius: 0.75rem;
+  padding: 0.9rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.45);
+
+  .app-section-title {
+    font-size: 0.95rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* ========= Buttons ========= */
+
+.app-button {
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+
+  &:hover:not(:disabled) {
+    background-color: #4338ca;
+    transform: translateY(-1px);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &.app-button-full {
+    width: 100%;
+  }
+}
+
+/* ========= Footer ========= */
+
+.app-footer {
+  margin-top: 1.25rem;
+  text-align: center;
+
+  .footer-note {
+    font-size: 0.8rem;
+    color: #9ca3af;
+  }
+}
+
+/* ========= APOD Thumbnails ========= */
+
+.apod-thumbnails {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.apod-thumb-button {
+  border-radius: 0.5rem;
+  padding: 0.25rem;
+  border: 1px solid #1f2937;
+  background-color: #020617;
+  cursor: pointer;
+  width: calc(50% - 0.25rem); // 2 per row on small screens
+  text-align: left;
+
+  &.selected {
+    border: 2px solid #4f46e5;
+    background-color: #111827;
+  }
+
+  .apod-thumb-img {
+    width: 100%;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 0.35rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .apod-thumb-title {
+    font-size: 0.65rem;
+    color: #e5e7eb;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+/* Meta info */
+
+.apod-meta {
+  margin-top: 0.75rem;
+
+  .apod-meta-title {
+    font-weight: 600;
+  }
+
+  .apod-meta-date {
+    font-size: 0.8rem;
+    color: #9ca3af;
+  }
+
+  .apod-meta-description {
+    font-size: 0.8rem;
+    color: #cbd5f5;
+    margin-top: 0.25rem;
+    max-height: 4rem;
+    overflow: hidden;
+  }
+}
+
+/* ========= Selfie Upload ========= */
+
+.selfie-upload-description {
+  font-size: 0.85rem;
+  color: #cbd5f5;
+  margin-bottom: 0.5rem;
+}
+
+.selfie-preview-wrapper {
+  margin-top: 0.5rem;
+
+  .selfie-preview-label {
+    font-size: 0.85rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .selfie-preview {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    border: 1px solid #1f2937;
+  }
+}
+
+/* ========= Zoom Slider ========= */
+
+.zoom-label {
+  font-size: 0.85rem;
+}
+
+.zoom-slider-range {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+/* ========= Text Helpers ========= */
+
+.body-small {
+  font-size: 0.85rem;
+}
+
+.body-small-muted {
+  font-size: 0.85rem;
+  color: #cbd5f5;
+}
+
+.body-xsmall-muted {
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+.error-text {
+  font-size: 0.85rem;
+  color: salmon;
+  margin-top: 0.5rem;
+}
+
+.preview-helper-text {
+  font-size: 0.8rem;
+  color: #9ca3af;
+  margin-top: 0.5rem;
+}
+
+/* ========= Canvas Preview ========= */
+
+.preview-wrapper {
+  background-color: #020617;
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  border: 1px solid #1f2937;
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  box-sizing: border-box;
+
+  .preview-canvas {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0.75rem;
+  }
+}
+
+/* ========= RESPONSIVE BREAKPOINTS ========= */
+
+/* Tablet and up */
+@media (min-width: 768px) {
+  .app-container {
+    max-width: 900px;
+  }
+
+  .app-header {
+    .app-title {
+      font-size: 1.8rem;
+    }
+
+    .app-subtitle {
+      font-size: 0.95rem;
+    }
+  }
+
+  .apod-thumb-button {
+    width: 100px; // more consistent thumbnail size on tablet+
+  }
+}
+
+/* Desktop and up */
+@media (min-width: 1024px) {
+  .app-container {
+    max-width: 1100px;
+  }
+
+  .app-layout {
+    flex-direction: row; // side-by-side layout on desktop
+    gap: 1.5rem;
+  }
+
+  .app-right-panel {
+    order: 2; // preview on the right
+  }
+
+  .app-left-panel {
+    order: 1; // controls on the left
+  }
+
+  .app-card {
+    padding: 1rem;
+  }
+
+  .preview-wrapper {
+    max-width: 680px;
+  }
+}
+
